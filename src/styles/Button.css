@@ -8,6 +8,7 @@
   background-color: #e0e1e6;
   color: #888888;
   flex: 1;
+  outline: 1px solid black;
 }
 
 .operator {
