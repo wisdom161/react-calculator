@@ -12,18 +12,23 @@ class App extends Component {
     this.state = {
       input: ""
     };
+
   }
   // don't need to bind when you write as arrow function
   addToInput = val => {
-    if (isNaN(val) && isNaN(this.state.input[this.state.input.length-1])){
-      this.setState({input: this.state.input}); 
+    let input = this.state.input;
+    let length = input.length;
+    if (val === 'string' && input[length-1] === 'string'){
+      this.setState({ input: input }); 
       } else {
-      this.setState({input: this.state.input + val});
+      this.setState({ input: input + val });
       };
   };
 
   handleEqual = () => {
-    if (isNaN(this.state.input[this.state.input.length-1])) {
+    let input = this.state.input;
+    let length = input.length;
+    if ( input[length-1] === 'string') {
       this.setState({ input: this.state.input });     
       } else {
       this.setState({ input: evaluate(this.state.input) });
@@ -31,7 +36,7 @@ class App extends Component {
   }
 
   handleClear = () => {
-    this.setState( {input: ""} );
+    this.setState({ input: "" });
   }
 
   render() {
